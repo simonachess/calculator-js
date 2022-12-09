@@ -1,0 +1,90 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 410px;
+    height: 560px;
+    background-color: rgb(228, 233, 241);
+    display: grid;
+    grid-template: 30px repeat(7, 1fr) / repeat(4, 1fr);
+    grid-gap: 3px;
+    border: 2px solid black;
+}
+
+#actions {
+    grid-column: 1 / 5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 400;
+    padding-right: 10px;
+    color: #666;
+}
+
+#result {
+    grid-column: 1 / 5;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 40px;
+    font-weight: 600;
+    padding-right: 10px;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    user-select: none;
+}
+
+.function {
+    background-color: rgb(245, 245, 245);
+}
+
+.clear-all {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.clear-last {
+    grid-column-start: 3;
+    grid-column-end: 5;
+}
+
+.number-0 {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+.number {
+    background-color: rgb(250, 250, 250);
+    font-weight: bold;
+}
+
+.function:hover, .number:hover {
+    background-color: rgb(209, 209, 209);
+}
+
+.equals {
+    background-color: rgb(138, 190, 232);
+    grid-column-start: span 4;
+
+}
+
+.equals:hover {
+    background-color: rgb(69,153, 219);
+}
