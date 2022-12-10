@@ -1,34 +1,34 @@
 let isActionPressed = false
 let isEqualsPressed = false
 let resultRow = document.getElementById('result')
-resultRow.innerHTML = '0'
+resultRow.innerText = '0'
 
 let actionRow = document.getElementById('actions')
 
 function numberPress(number) {
     if (isEqualsPressed) {
-        actionRow.innerHTML = ''
-        resultRow.innerHTML = number
+        actionRow.innerText = ''
+        resultRow.innerText = number
         isEqualsPressed = false
     } else if (isActionPressed) {
-        resultRow.innerHTML = number
+        resultRow.innerText = number
         isActionPressed = false
-    } else if (resultRow.innerHTML === '0') {
-        resultRow.innerHTML = number
+    } else if (resultRow.innerText === '0') {
+        resultRow.innerText = number
     } else {
-        resultRow.innerHTML = resultRow.innerHTML + number
+        resultRow.innerText = resultRow.innerText + number
     }
 }
 
 function erase() {
-    resultRow.innerHTML = '0'
-    actionRow.innerHTML = ''
+    resultRow.innerText = '0'
+    actionRow.innerText = ''
 }
 function eraseLastNumber() {
-    if (resultRow.innerHTML.length === 1) {
-        resultRow.innerHTML = '0'
+    if (resultRow.innerText.length === 1) {
+        resultRow.innerText = '0'
     } else {
-        resultRow.innerHTML = resultRow.innerHTML.substring(0, resultRow.innerHTML.length - 1)
+        resultRow.innerText = resultRow.innerText.substring(0, resultRow.innerText.length - 1)
     }
 }
 
@@ -36,50 +36,50 @@ function actionPress(action) {
     isActionPressed = true
     isEqualsPressed = false
 
-    let numberAndAction = actionRow.innerHTML.split(' ')
+    let numberAndAction = actionRow.innerText.split(' ')
 
     if (numberAndAction.length === 2) {
         if (numberAndAction[1] === '+') {
-            resultRow.innerHTML = Number(numberAndAction[0]) + Number(resultRow.innerHTML)
+            resultRow.innerText = Number(numberAndAction[0]) + Number(resultRow.innerText)
         } else if (numberAndAction[1] === '-') {
-            resultRow.innerHTML = Number(numberAndAction[0]) - Number(resultRow.innerHTML)
+            resultRow.innerText = Number(numberAndAction[0]) - Number(resultRow.innerText)
         } else if (numberAndAction[1] === 'x') {
-            resultRow.innerHTML = Number(numberAndAction[0]) * Number(resultRow.innerHTML)
+            resultRow.innerText = Number(numberAndAction[0]) * Number(resultRow.innerText)
         } else if (numberAndAction[1] === '/') {
-            resultRow.innerHTML = Number(numberAndAction[0]) / Number(resultRow.innerHTML)
+            resultRow.innerText = Number(numberAndAction[0]) / Number(resultRow.innerText)
         }
 
     }
 
-    actionRow.innerHTML = resultRow.innerHTML + ' ' + action
+    actionRow.innerText = resultRow.innerText + ' ' + action
 }
 
 function equals() {
-    let numberAndAction = actionRow.innerHTML.split(' ')
+    let numberAndAction = actionRow.innerText.split(' ')
 
-    actionRow.innerHTML = actionRow.innerHTML + ' ' + resultRow.innerHTML + ' ='
+    actionRow.innerText = actionRow.innerText + ' ' + resultRow.innerText + ' ='
 
     if (numberAndAction[1] === '+') {
-        resultRow.innerHTML = Number(numberAndAction[0]) + Number(resultRow.innerHTML)
+        resultRow.innerText = Number(numberAndAction[0]) + Number(resultRow.innerText)
     } else if (numberAndAction[1] === '-') {
-        resultRow.innerHTML = Number(numberAndAction[0]) - Number(resultRow.innerHTML)
+        resultRow.innerText = Number(numberAndAction[0]) - Number(resultRow.innerText)
     } else if (numberAndAction[1] === 'x') {
-        resultRow.innerHTML = Number(numberAndAction[0]) * Number(resultRow.innerHTML)
+        resultRow.innerText = Number(numberAndAction[0]) * Number(resultRow.innerText)
     } else if (numberAndAction[1] === '/') {
-        if ( Number(numberAndAction[0]) / Number(resultRow.innerHTML) === Infinity) {
+        if ( Number(numberAndAction[0]) / Number(resultRow.innerText) === Infinity) {
             alert('Action is not possible')
-            resultRow.innerHTML = '0'
-            actionRow.innerHTML = ''
+            resultRow.innerText = '0'
+            actionRow.innerText = ''
             return
         }
-        resultRow.innerHTML = Number(numberAndAction[0]) / Number(resultRow.innerHTML)
+        resultRow.innerText = Number(numberAndAction[0]) / Number(resultRow.innerText)
     }
 
     isEqualsPressed = true
 }
 
 function dotPress() {
-    if (resultRow.innerHTML.indexOf('.') === -1) {
-        resultRow.innerHTML = resultRow.innerHTML + '.'
+    if (resultRow.innerText.indexOf('.') === -1) {
+        resultRow.innerText = resultRow.innerText + '.'
     }
 }
