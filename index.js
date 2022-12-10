@@ -72,7 +72,7 @@ function equals() {
             actionRow.innerText = ''
             return
         }
-        resultRow.innerText = Number(numberAndAction[0]) / Number(resultRow.innerText)
+        resultRow.innerText = Math.round(Number(numberAndAction[0]) / Number(resultRow.innerText) * 100000) / 100000
     }
 
     isEqualsPressed = true
